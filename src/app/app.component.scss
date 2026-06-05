@@ -1,0 +1,21 @@
+#cur  { position:fixed; width:10px; height:10px; background:var(--c); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .15s,height .15s; mix-blend-mode:exclusion; }
+#curl { position:fixed; width:34px; height:34px; border:1.5px solid rgba(0,245,196,.35); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .1s,top .1s; }
+#bg-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55; }
+.gbg { position:fixed; inset:0; z-index:0; pointer-events:none; /* background-image:linear-gradient(var(--gb) 1px,transparent 1px),linear-gradient(90deg,var(--gb) 1px,transparent 1px); background-size:68px 68px; opacity:.3; */ }
+.orb { position:fixed; border-radius:50%; pointer-events:none; filter:blur(110px); z-index:0; }
+.orb1 { width:650px; height:650px; background:var(--c); opacity:.12; top:-180px; right:-180px; }
+.orb2 { width:450px; height:450px; background:var(--c2); opacity:.15; bottom:-100px; left:-150px; }
+.sticky-download-btn {
+  position:fixed; top:1.4rem; right:2.5rem; z-index:700;
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--b); font-size:.875rem; font-weight:500;
+  color:var(--c); background:transparent; border:1px solid var(--gb);
+  padding:.6rem 1rem; border-radius:100px; cursor:pointer;
+  transition:var(--tr);
+  svg { width:16px; height:16px; }
+  &:hover { background:rgba(0,245,196,.07); border-color:var(--c); transform:translateY(-2px); }
+  :host-context([data-theme="light"]) & { color:var(--c); border-color:rgba(37,99,235,.18); &:hover{background:rgba(37,99,235,.09);border-color:var(--c)} }
+  @media(max-width:768px){ display:none; }
+}
+main { position:relative; z-index:1; }
+    

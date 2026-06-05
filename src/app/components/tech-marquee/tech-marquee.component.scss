@@ -1,0 +1,222 @@
+.tech-marquee-section {
+  width: 100%;
+  max-width: 100vw;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin: 4rem 0;
+}
+
+.marquee-heading {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg);
+  z-index: 10;
+}
+
+.heading-text {
+  font-family: var(--h);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--t);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--c), var(--c2), var(--c));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(0,245,196,.3), 0 0 80px rgba(0,245,196,.15);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.5));
+  white-space: nowrap;
+}
+
+.marquee-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.marquee-ribbon {
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  transform: rotate(-3deg);
+  transform-origin: center;
+  background: linear-gradient(135deg, rgba(0, 245, 196, 0.644), rgba(67,97,238,.05), rgba(0,245,196,.05));
+  backdrop-filter: blur(30px);
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 100px rgba(0,245,196,.08), inset 0 0 50px rgba(0,245,196,.03);
+  overflow: visible;
+}
+
+.ribbon-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  height: 100%;
+  animation: scroll-ribbon 45s linear infinite;
+  padding: 0 5rem;
+  width: fit-content;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  min-width: 120px;
+  padding: 1.2rem 2rem;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  transition: var(--tr);
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(0,245,196,.08);
+    border-color: rgba(0,245,196,.25);
+    box-shadow: 0 12px 32px rgba(0,245,196,.12), 0 0 50px rgba(0,245,196,.15);
+    transform: translateY(-8px) scale(1.08);
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,.4));
+  }
+
+  span {
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--t2);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+}
+
+@keyframes scroll-ribbon {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+@media (max-width: 1024px) {
+  .tech-marquee-section {
+    height: 180px;
+    margin: 3rem 0;
+  }
+
+  .marquee-heading {
+    top: -50px;
+  }
+
+  .heading-text {
+    font-size: 2.8rem;
+    letter-spacing: .25em;
+  }
+
+  .marquee-ribbon {
+    transform: rotate(-10deg);
+  }
+
+  .tech-item {
+    min-width: 100px;
+    padding: 1rem 1.5rem;
+  }
+
+  .tech-item img {
+    height: 42px;
+  }
+
+  .tech-item span {
+    font-size: .68rem;
+  }
+
+  .ribbon-content {
+    gap: 3rem;
+    padding: 0 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-marquee-section {
+    height: 150px;
+    margin: 2rem 0;
+  }
+
+  .marquee-heading {
+    top: -40px;
+  }
+
+  .heading-text {
+    font-size: 2rem;
+    letter-spacing: .2em;
+  }
+
+  .marquee-ribbon {
+    transform: rotate(-8deg);
+  }
+
+  .tech-item {
+    min-width: 75px;
+    padding: .8rem 1rem;
+  }
+
+  .tech-item img {
+    height: 36px;
+  }
+
+  .tech-item span {
+    font-size: .62rem;
+  }
+
+  .ribbon-content {
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-marquee-section {
+    height: 130px;
+    margin: 1.5rem 0;
+  }
+
+  .marquee-heading {
+    top: -35px;
+  }
+
+  .heading-text {
+    font-size: 1.5rem;
+    letter-spacing: .15em;
+  }
+
+  .tech-item {
+    min-width: 60px;
+    padding: .6rem 0.8rem;
+    gap: .4rem;
+  }
+
+  .tech-item img {
+    height: 30px;
+  }
+
+  .tech-item span {
+    font-size: .58rem;
+  }
+
+  .ribbon-content {
+    gap: 1.5rem;
+    padding: 0 0.8rem;
+  }
+}

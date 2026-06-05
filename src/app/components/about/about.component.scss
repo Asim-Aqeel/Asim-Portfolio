@@ -1,0 +1,35 @@
+#about { background:linear-gradient(180deg,transparent,var(--bg2) 18%,var(--bg2) 82%,transparent); padding:4rem 5rem; @media(max-width:768px){padding:3rem 1.5rem} @media(max-width:480px){padding:2rem 1rem} }
+.ag { display:grid; grid-template-columns:300px 1fr; gap:3.5rem; align-items:start; margin-top:1rem; @media(max-width:768px){grid-template-columns:1fr;gap:2.5rem} @media(max-width:480px){gap:2rem} }
+
+// Profile card (left, sticky)
+.acard { position:sticky; top:calc(var(--nav-h,76px) + 2rem); background:var(--gl); border:1px solid var(--gb); border-radius:20px; overflow:hidden; backdrop-filter:blur(16px); @media(max-width:768px){position:static;max-width:320px;margin:0 auto} @media(max-width:480px){max-width:100%} }
+.acard-top { padding:2.2rem 2rem 1.5rem; text-align:center; background:linear-gradient(135deg,rgba(0,245,196,.05),transparent); border-bottom:1px solid var(--gb); }
+.apr {
+  width:110px; height:110px; border-radius:50%; margin:0 auto 1rem; position:relative; display:flex; align-items:center; justify-content:center;
+  &::before { content:''; position:absolute; inset:-3px; border-radius:50%; background:conic-gradient(var(--c),var(--c2),var(--c3),var(--c)); animation:spin-s 6s linear infinite; }
+  &::after  { content:''; position:absolute; inset:-1px; border-radius:50%; background:var(--bg2); }
+}
+.apr-core { position:relative; z-index:2; width:100%; height:100%; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--h); font-size:2.6rem; font-weight:800; background:linear-gradient(135deg,#fff,var(--c) 60%,var(--c2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; overflow:hidden; }
+.apr-img { width:100%; height:100%; border-radius:50%; object-fit:cover; position:relative; z-index:2; }
+.acard-name  { font-family:var(--h); font-size:1.2rem; font-weight:800; color:var(--t); margin-bottom:.25rem; }
+.acard-title { font-family:var(--mono); font-size:.75rem; color:var(--c); margin-bottom:.75rem; }
+.acard-loc   { font-size:.82rem; color:var(--t2); display:flex; align-items:center; justify-content:center; gap:5px; svg{width:13px;height:13px;color:var(--c)} }
+.acard-status { display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:.7rem; color:var(--c); background:rgba(0,245,196,.07); padding:.25rem .75rem; border-radius:100px; margin-top:.75rem; }
+.ado { width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow:0 0 6px #4ade80; animation:blink 2s infinite; }
+.acard-stats { display:grid; grid-template-columns:repeat(3,1fr); }
+.acstat { padding:1rem .5rem; text-align:center; border-right:1px solid var(--gb); &:last-child{border-right:none}
+  .n { font-family:var(--mono); font-size:1.2rem; color:var(--t); span{color:var(--c)} }
+  .l { font-size:.62rem; color:var(--t2); text-transform:uppercase; letter-spacing:.05em; margin-top:2px; }
+}
+.acard-soc { padding:1rem 1.2rem; display:flex; justify-content:center; gap:.6rem; border-top:1px solid var(--gb); }
+.aslink { width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:var(--gl); border:1px solid var(--gb); color:var(--t2); cursor:pointer; transition:var(--tr); svg{width:15px;height:15px} &:hover{color:var(--c);border-color:rgba(0,245,196,.3);transform:translateY(-2px)} }
+
+// Right: bio + skills
+.abio { margin-bottom:2.5rem; p{font-size:1rem;color:var(--t2);line-height:1.82;margin-bottom:.9rem;strong{color:var(--t);font-weight:600}} }
+.awhat { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; margin-bottom:2.5rem; @media(max-width:600px){grid-template-columns:1fr} }
+.awcard { background:var(--gl); border:1px solid var(--gb); border-radius:12px; padding:1.1rem 1.2rem; display:flex; align-items:flex-start; gap:.85rem; transition:var(--tr); cursor:default; &:hover{border-color:rgba(0,245,196,.25);transform:translateY(-3px)} }
+.awico { width:38px; height:38px; border-radius:9px; background:rgba(0,245,196,.08); border:1px solid var(--gb); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--c); svg{width:17px;height:17px} }
+.awcard h4 { font-family:var(--h); font-size:.88rem; font-weight:700; color:var(--t); margin-bottom:.25rem; }
+.awcard p  { font-size:.77rem; color:var(--t2); line-height:1.5; }
+.askills-label { font-family:var(--mono); font-size:.72rem; color:var(--c); letter-spacing:.12em; text-transform:uppercase; margin-bottom:1rem; display:flex; align-items:center; gap:8px; &::after{content:'';flex:1;height:1px;background:var(--gb)} }
+.achips { display:flex; flex-wrap:wrap; gap:7px; }

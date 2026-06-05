@@ -1,0 +1,85 @@
+<div id="projects">
+  <div id="proj-header">
+    <h2 class="sh" style="text-align:center">Featured <span class="dim">Projects</span></h2>
+    <p class="sdesc" style="text-align:center">Real-world systems built and shipped. Scroll through each one.</p>
+  </div>
+
+  <div #spacer id="proj-spacer">
+    <div id="proj-pin">
+
+      <div *ngFor="let p of projects; let i = index"
+           class="pc-wrap"
+           [class.alive]="currentIdx === i"
+           [style.opacity]="states[i].op"
+           [style.transform]="cardTransform(states[i])"
+           [style.filter]="cardFilter(states[i])"
+           [style.z-index]="states[i].zi">
+
+        <div class="pc" [style.--pc-clr]="p.accentColor">
+          <div class="pc-left">
+            <div>
+              <div class="pc-num">{{ p.num }} / 0{{ projects.length }}</div>
+              <div class="pc-year">{{ p.year }}</div>
+              <div class="pc-tags">
+                <span class="pc-tag" *ngFor="let t of p.tags">{{ t }}</span>
+              </div>
+              <h3>{{ p.title }}</h3>
+              <p>{{ p.desc }}</p>
+            </div>
+            <div class="pc-links">
+              <a [href]="p.github" class="pcl">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                GitHub
+              </a>
+              <a [href]="p.demo" class="pcl demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+
+          <div class="pc-right">
+            <div class="pc-right-bg" [style.background]="p.bgGradient"></div>
+            <div class="laptop-wrap">
+              <div class="laptop-frame">
+                <div class="laptop-screen">
+                  <div class="browser-bar">
+                    <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
+                  </div>
+                  <div class="browser-content">
+                    <div class="b-hero"></div>
+                    <div class="b-rows">
+                      <div class="b-row"><div class="b-line w90"></div></div>
+                      <div class="b-row"><div class="b-line w60"></div><div class="b-line w30"></div></div>
+                      <div class="b-row"><div class="b-line w70"></div></div>
+                      <div class="b-card"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="laptop-chin"></div>
+              </div>
+              <div class="laptop-stand"></div>
+              <div class="laptop-base"></div>
+            </div>
+          </div>
+
+          <div class="pc-progress"
+               [style.width]="currentIdx === i ? '50%' : currentIdx > i ? '100%' : '0%'">
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-dots">
+        <span *ngFor="let p of projects; let i = index"
+              class="pd" [class.on]="currentIdx === i"
+              (click)="scrollToProject(i)">
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

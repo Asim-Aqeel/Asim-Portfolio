@@ -1,0 +1,17 @@
+<section id="services">
+  <h2 class="sh" style="text-align:center">My <span class="dim">Services</span></h2>
+  <p class="sdesc" style="text-align:center">End-to-end — from pixel-perfect frontends to robust APIs and cloud infrastructure.</p>
+  <div class="svgg">
+    <div *ngFor="let s of data.services; let i = index" class="svc" [class.feat]="s.featured" [style.animation-delay]="i * 80 + 'ms'">
+      <span *ngIf="s.featured" class="sv-badge">★ Core</span>
+      <div class="sv-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path [attr.d]="s.iconPath"/>
+        </svg>
+      </div>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.desc }}</p>
+      <ul><li *ngFor="let item of s.items">{{ item }}</li></ul>
+    </div>
+  </div>
+</section>

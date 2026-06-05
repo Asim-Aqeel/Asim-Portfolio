@@ -1,0 +1,74 @@
+#contact { padding:4rem 5rem 4rem; background:linear-gradient(180deg,transparent,var(--bg2) 15%,var(--bg2) 85%,transparent); overflow:hidden; @media(max-width:1024px){padding:3rem 3rem 3rem} @media(max-width:768px){padding:2rem 1.5rem 2rem} @media(max-width:480px){padding:1.5rem 1rem 1.5rem} }
+.cont-head { text-align:center; margin-bottom:-9rem; }
+
+.contact-wrapper {
+  display:flex; align-items:flex-end; justify-content:center; gap:0;
+  max-width:1200px; margin:0 auto; position:relative;
+  @media(max-width:1024px){ flex-direction:column; align-items:center; gap:2rem; }
+  @media(max-width:768px){ flex-direction:column; align-items:center; gap:1rem; }
+  @media(max-width:480px){ flex-direction:column; align-items:center; gap:.8rem; }
+}
+
+.avatar-side {
+  flex:0 0 auto; width:500px; position:relative; z-index:2; margin-right:-100px;
+  @media(max-width:1024px){ width:400px; margin-right:0; margin-bottom:0; }
+  @media(max-width:768px){ width:320px; margin-right:0; margin-bottom:0; order:0; }
+  @media(max-width:480px){ width:240px; margin-bottom:0; }
+}
+.av-canvas-wrap { width:500px; height:950px; position:relative; @media(max-width:1024px){width:400px;height:700px} @media(max-width:768px){width:320px;height:450px} @media(max-width:480px){width:240px;height:350px} }
+#cv-canvas { width:100% !important; height:100% !important; display:block; }
+.av-shadow { position:absolute; bottom:0; left:320px !important; transform:none !important; width:180px; height:25px; background:radial-gradient(ellipse,rgba(0,0,0,.7),transparent 70%); border-radius:50%; pointer-events:none; z-index:3; @media(max-width:1024px){ left:260px !important; width:150px; height:22px; } @media(max-width:768px){ left:180px !important; width:120px; height:20px; } @media(max-width:480px){ left:120px !important; width:90px; height:16px; } }
+
+.form-side { flex:1; max-width:580px; min-width:0; position:relative; z-index:1; width:100%; @media(max-width:1024px){max-width:500px} @media(max-width:768px){max-width:100%} }
+.form-card {
+  background:linear-gradient(145deg,rgba(10,16,38,.92),rgba(8,13,30,.96));
+  border:1px solid rgba(0,245,196,.14); border-radius:20px; padding:2.4rem 2.2rem 2rem;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(0,245,196,.04);
+  backdrop-filter:blur(20px);
+  :host-context([data-theme="light"]) & { background:linear-gradient(145deg,rgba(230,240,255,.92),rgba(220,232,255,.96)); border-color:rgba(37,99,235,.18); box-shadow:0 30px 80px rgba(0,0,60,.12); }
+  @media(max-width:1024px){ padding:2rem 1.8rem 1.8rem; }
+  @media(max-width:768px){ padding:1.8rem 1.5rem 1.5rem; border-radius:16px; }
+  @media(max-width:480px){ padding:1.5rem 1.2rem 1.2rem; border-radius:14px; }
+}
+
+.form-card-head { margin-bottom:1.6rem; @media(max-width:480px){margin-bottom:1.2rem} }
+.fc-status { display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:.7rem; color:var(--c); background:rgba(0,245,196,.07); padding:.3rem .85rem; border-radius:100px; margin-bottom:.85rem; @media(max-width:480px){font-size:.65rem;padding:.25rem .7rem} }
+.fc-dot { width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow:0 0 7px #4ade80; animation:blink 2s infinite; }
+.form-card-head h3 { font-family:var(--h); font-size:1.35rem; font-weight:800; color:var(--t); margin-bottom:.35rem; letter-spacing:-.5px; @media(max-width:768px){font-size:1.2rem} @media(max-width:480px){font-size:1.1rem} }
+.form-card-head p  { font-size:.85rem; color:var(--t2); line-height:1.65; @media(max-width:480px){font-size:.8rem} }
+
+.cfm { display:flex; flex-direction:column; gap:.85rem; @media(max-width:480px){gap:.7rem} }
+.fg  { display:flex; flex-direction:column; gap:.35rem; }
+.fg label { font-family:var(--mono); font-size:.68rem; color:var(--t2); letter-spacing:.07em; text-transform:uppercase; @media(max-width:480px){font-size:.62rem} }
+.fg input, .fg select, .fg textarea {
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+  border-radius:10px; padding:.8rem 1rem; color:var(--t); font-family:var(--b); font-size:.9rem;
+  outline:none; resize:none; transition:var(--tr); -webkit-appearance:none;
+  &:focus { border-color:rgba(0,245,196,.45); background:rgba(0,245,196,.04); box-shadow:0 0 0 3px rgba(0,245,196,.08); }
+  &.invalid { border-color:rgba(248,113,113,.5); }
+  :host-context([data-theme="light"]) & { background:rgba(255,255,255,.7); border-color:rgba(37,99,235,.18); }
+  @media(max-width:480px){ padding:.7rem .85rem; font-size:.85rem; }
+}
+.fg textarea { min-height:115px; line-height:1.6; @media(max-width:480px){min-height:100px} }
+.fg select option { background:var(--bg3); color:var(--t); }
+.fgrow { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; @media(max-width:600px){grid-template-columns:1fr} @media(max-width:480px){gap:.7rem} }
+
+.sbtn {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; padding:.95rem; border:none; border-radius:11px;
+  font-family:var(--b); font-size:.97rem; font-weight:700; color:#fff; cursor:pointer;
+  background:linear-gradient(135deg,#186e40,#1e9050,#186e40); background-size:200% 100%; background-position:100% 0;
+  box-shadow:0 4px 20px rgba(0,160,70,.3), inset 0 1px 0 rgba(255,255,255,.1);
+  transition:var(--tr);
+  svg { width:18px; height:18px; flex-shrink:0; }
+  &:hover { background-position:0 0; box-shadow:0 6px 30px rgba(0,180,80,.45),inset 0 1px 0 rgba(255,255,255,.15); transform:translateY(-2px); }
+  &:disabled { opacity:.5; pointer-events:none; transform:none; }
+  @media(max-width:480px){ padding:.85rem; font-size:.9rem; gap:8px; svg{width:16px;height:16px} }
+}
+.fmsg { padding:.75rem 1rem; border-radius:9px; font-size:.82rem; margin-top:.25rem;
+  &.ok  { background:rgba(74,222,128,.1); border:1px solid rgba(74,222,128,.3); color:#4ade80; }
+  &.err { background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.3); color:#f87171; }
+}
+.fc-or { text-align:center; margin-top:.8rem; font-size:.8rem; color:var(--t2);
+  a { color:var(--c); font-weight:500; display:inline-flex; align-items:center; gap:5px; margin-top:.3rem; svg{width:13px;height:13px} }
+}

@@ -1,0 +1,85 @@
+<section id="contact">
+  <div class="cont-head">
+    <h2 class="sh" style="text-align:center;margin-bottom:.3rem">Let's <span class="ac">Build</span> <span class="dim">Together</span></h2>
+    <p class="sdesc" style="text-align:center;margin:0">Have a project or opportunity? I reply within 24 hours.</p>
+  </div>
+
+  <div class="contact-wrapper">
+    <!-- LEFT: 3D Avatar -->
+    <div class="avatar-side">
+      <div class="av-canvas-wrap"><canvas id="cv-canvas"></canvas></div>
+      <div class="av-shadow"></div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="form-side">
+      <div class="form-card">
+        <div class="form-card-head">
+          <div class="fc-status"><span class="fc-dot"></span> Open to Freelance &amp; Full-time</div>
+          <h3>Send me a message</h3>
+          <p>Fill in the form and I'll get back to you soon.</p>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="cfm" novalidate>
+          <div class="fgrow">
+            <div class="fg">
+              <label>Your Name *</label>
+              <input type="text" formControlName="from_name" placeholder="Asim"
+                     [class.invalid]="form.get('from_name')?.invalid && form.get('from_name')?.touched">
+            </div>
+            <div class="fg">
+              <label>Email Address *</label>
+              <input type="email" formControlName="from_email" placeholder="asim123@example.com"
+                     [class.invalid]="form.get('from_email')?.invalid && form.get('from_email')?.touched">
+            </div>
+          </div>
+          <div class="fg">
+            <label>Type of Inquiry</label>
+            <select formControlName="subject">
+              <option value="Project Inquiry"> Project Inquiry</option>
+              <option value="Freelance Work"> Freelance Work</option>
+              <option value="Full-Time Role"> Full-Time / Job Opportunity</option>
+              <option value="Collaboration"> Collaboration</option>
+              <option value="Just Saying Hi"> Just Saying Hi</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Preferred Timeline</label>
+            <select formControlName="timeline">
+              <option value="ASAP">ASAP</option>
+              <option value="1-2 weeks">1 – 2 Weeks</option>
+              <option value="1 month">1 Month</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Tell me about your project *</label>
+            <textarea formControlName="message"
+                      placeholder="Tell me more about your project or query..."
+                      [class.invalid]="form.get('message')?.invalid && form.get('message')?.touched">
+            </textarea>
+          </div>
+          <button type="submit" class="sbtn" [disabled]="sending">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            {{ sending ? 'Sending…' : 'Send Message' }}
+          </button>
+          <div *ngIf="status" class="fmsg" [class.ok]="isOk" [class.err]="!isOk">{{ status }}</div>
+        </form>
+
+        <div class="fc-or">
+          Or email me directly at:<br>
+          <a href="mailto:asimaqeel2223@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            {{ 'asimaqeel2223@gmail.com' }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

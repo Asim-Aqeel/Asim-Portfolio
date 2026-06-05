@@ -1,0 +1,28 @@
+#hero {
+  position:relative; z-index:1; min-height:100vh;
+  padding:calc(var(--nav-h,76px) + 3rem) 5rem 4rem;
+  display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:3rem;
+  @media(max-width:900px){ grid-template-columns:1fr; padding:calc(var(--nav-h,76px) + 2rem) 1.5rem 3rem; }
+}
+.h-tag { display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.78rem; color:var(--c); background:rgba(0,245,196,.06); padding:.38rem 1rem; border-radius:100px; margin-bottom:1.5rem; animation:fadeUp .8s both; }
+.hdot { width:7px; height:7px; background:var(--c); border-radius:50%; box-shadow:0 0 8px var(--c); animation:blink 2s infinite; }
+.htw { font-family:var(--mono); font-size:1rem; color:var(--c); min-height:1.4rem; margin-bottom:.5rem; animation:fadeUp .8s .05s both; }
+.cursor-blink { animation:blink 1s step-end infinite; }
+
+h1.ht {
+  font-family:var(--h); font-size:clamp(2.2rem,5.1vw,4.1rem); font-weight:600;
+  letter-spacing:-2.5px; line-height:1.02; color:var(--t); margin-bottom:1.2rem;
+  animation:fadeUp .8s .1s both;
+  em   { color:var(--c); font-style:normal; }
+  .dim { color:var(--t3); }
+}
+.hsub { font-size:1.04rem; color:var(--t2); line-height:1.78; max-width:510px; margin-bottom:2.4rem; animation:fadeUp .8s .2s both; strong{color:var(--t);font-weight:600} }
+.hbtns { display:flex; gap:.85rem; flex-wrap:wrap; animation:fadeUp .8s .3s both; }
+.hstats { display:flex; gap:2.2rem; flex-wrap:wrap; margin-top:2.8rem; padding-top:1.8rem; border-top:1px solid var(--gb); animation:fadeUp .8s .4s both; }
+.hsi {
+  .n { font-family:var(--mono); font-size:1.9rem; color:var(--t); line-height:1; span{color:var(--c)} }
+  .l { font-size:.7rem; color:var(--t2); text-transform:uppercase; letter-spacing:.07em; margin-top:3px; }
+}
+.hero-right { display:flex; align-items:center; justify-content:center; animation:fadeUp .8s .3s both; @media(max-width:900px){order:-1} }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }

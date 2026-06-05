@@ -1,0 +1,47 @@
+<section id="hero">
+  <div class="hero-left">
+    <div class="h-tag"><span class="hdot"></span> Open to Work · Karachi, Pakistan 🇵🇰</div>
+    <div class="htw"><span>{{ displayText }}</span><span class="cursor-blink">█</span></div>
+    <h1 class="ht">I'm <em>Asim Aqeel,</em><br><span class="dim">A Software</span><br>Problem Solver.</h1>
+    <p class="hsub"><strong>Full Stack Developer</strong> specializing in Angular, MEAN Stack &amp; Cloud.
+      Currently at <strong>QAVI TECH</strong> building enterprise WMS systems.</p>
+    <div class="hbtns">
+      <button class="bp" (click)="scroll.scrollTo('projects')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        View Projects
+      </button>
+      <a class="bs" href="assets/cv/software & web developer3.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
+    </div>
+    <div class="hstats">
+      <div class="hsi" *ngFor="let s of data.heroStats">
+        <div class="n">{{ s.value }}<span>{{ s.suffix }}</span></div>
+        <div class="l">{{ s.label }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="avatar-container">
+      <div class="avatar-wrapper">
+        <img class="avatar-image" src="assets/images/image-wm.png" alt="Asim Aqeel">
+        <div class="avatar-fade"></div>
+      </div>
+      <div class="logo-orbit">
+        <img class="orbit-logo" src="assets/logos/angularLogo.png" alt="Angular">
+        <img class="orbit-logo" src="assets/logos/jsLogo.png" alt="JavaScript">
+        <img class="orbit-logo" src="assets/logos/tsLogo.png" alt="TypeScript">
+        <img class="orbit-logo" src="assets/logos/phpLogo.png" alt="PHP">
+        <img class="orbit-logo" src="assets/logos/mysqlLogo.png" alt="MySQL">
+        <img class="orbit-logo" src="assets/logos/gitLogo.png" alt="Git">
+        <img class="orbit-logo" src="assets/logos/htmlLogo.png" alt="HTML">
+        <img class="orbit-logo" src="assets/logos/expressLogo.png" alt="Express">
+        <img class="orbit-logo" src="assets/logos/bitbuckitLogo.png" alt="Bitbucket">
+        <img class="orbit-logo" src="assets/logos/dbLogo.png" alt="Database">
+        <img class="orbit-logo" src="assets/logos/jiraLogo.png" alt="Jira">
+        <!-- <img class="orbit-logo" src="assets/logos/apisLogo.avif" alt="APIs"> -->
+      </div>
+    </div>
+  </div>
+</section>
