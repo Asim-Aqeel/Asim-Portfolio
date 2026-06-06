@@ -8,16 +8,17 @@ import { ServicesComponent }  from './components/services/services.component';
 import { ProjectsComponent }  from './components/projects/projects.component';
 import { ContactComponent }   from './components/contact/contact.component';
 import { FooterComponent }    from './components/footer/footer.component';
+import { StarFieldComponent } from './components/star-field/star-field.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, NavbarComponent, HeroComponent, AboutComponent,
-            TechMarqueeComponent, ServicesComponent, ProjectsComponent, ContactComponent, FooterComponent],
+            TechMarqueeComponent, ServicesComponent, ProjectsComponent, ContactComponent, FooterComponent, StarFieldComponent],
   template: `
+    <star-field></star-field>
     <div id="cur" [style.left.px]="cx" [style.top.px]="cy"></div>
     <div id="curl" [style.left.px]="tx" [style.top.px]="ty"></div>
-    <canvas id="bg-canvas"></canvas>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <app-navbar></app-navbar>
@@ -46,39 +47,7 @@ export class AppComponent implements OnInit {
     document.addEventListener('mousemove', (e) => { this.cx=e.clientX; this.cy=e.clientY; });
     const trail = () => { this.tx+=(this.cx-this.tx)*.12; this.ty+=(this.cy-this.ty)*.12; requestAnimationFrame(trail); };
     trail();
-    this._particles();
     this._reveal();
-  }
-
-  private _particles(): void {
-    const cnv = document.getElementById('bg-canvas') as HTMLCanvasElement;
-    if (!cnv) return;
-    const ctx = cnv.getContext('2d')!;
-    let W=0, H=0;
-    const pts = Array.from({length:55}, () => ({
-      x:Math.random()*3000, y:Math.random()*3000,
-      vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22,
-      r:Math.random()*1.3+.3, o:Math.random()*.28+.05
-    }));
-    const resize = () => { W=cnv.width=innerWidth; H=cnv.height=innerHeight; };
-    resize(); window.addEventListener('resize', resize, {passive:true});
-    const draw = () => {
-      ctx.clearRect(0,0,W,H);
-      const dark = document.documentElement.dataset['theme'] !== 'light';
-      const rgb  = dark ? '0,245,196' : '37,99,235';
-      pts.forEach(p => {
-        p.x+=p.vx; p.y+=p.vy;
-        if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle=`rgba(${rgb},${p.o})`; ctx.fill();
-      });
-      pts.forEach((p,i) => pts.slice(i+1).forEach(q => {
-        const d=Math.hypot(p.x-q.x,p.y-q.y);
-        if(d<105){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=`rgba(${rgb},${.028*(1-d/105)})`;ctx.lineWidth=.5;ctx.stroke();}
-      }));
-      requestAnimationFrame(draw);
-    };
-    draw();
   }
 
   private _reveal(): void {
