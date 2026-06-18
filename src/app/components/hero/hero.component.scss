@@ -25,6 +25,6 @@ h1.ht {
   .n { font-family:var(--mono); font-size:1.9rem; color:var(--t); line-height:1; span{color:var(--c)} @media(max-width:480px){font-size:1.5rem} }
   .l { font-size:.7rem; color:var(--t2); text-transform:uppercase; letter-spacing:.07em; margin-top:3px; @media(max-width:480px){font-size:.65rem} }
 }
-.hero-right { display:flex; align-items:center; justify-content:center; animation:fadeUp .8s .3s both; @media(max-width:900px){order:-1} @media(max-width:480px){padding:1rem 0} }
+.hero-right { display:flex; align-items:center; justify-content:center; animation:fadeUp .8s .3s both; @media(max-width:900px){order:-1;padding:2rem 0} @media(max-width:480px){padding:3rem 0} }
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }

@@ -5,7 +5,7 @@ import { HeroComponent }      from './components/hero/hero.component';
 import { AboutComponent }     from './components/about/about.component';
 import { TechMarqueeComponent } from './components/tech-marquee/tech-marquee.component';
 import { ServicesComponent }  from './components/services/services.component';
-import { ProjectsComponent }  from './components/projects/projects.component';
+import { ProjectShowcaseComponent }  from './components/projects/project-showcase.component';
 import { ContactComponent }   from './components/contact/contact.component';
 import { FooterComponent }    from './components/footer/footer.component';
 import { StarFieldComponent } from './components/star-field/star-field.component';
@@ -14,7 +14,7 @@ import { StarFieldComponent } from './components/star-field/star-field.component
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, NavbarComponent, HeroComponent, AboutComponent,
-            TechMarqueeComponent, ServicesComponent, ProjectsComponent, ContactComponent, FooterComponent, StarFieldComponent],
+            TechMarqueeComponent, ServicesComponent, ProjectShowcaseComponent, ContactComponent, FooterComponent, StarFieldComponent],
   template: `
     <star-field></star-field>
     <div id="cur" [style.left.px]="cx" [style.top.px]="cy"></div>
@@ -31,7 +31,7 @@ import { StarFieldComponent } from './components/star-field/star-field.component
       <app-about></app-about>
       <app-tech-marquee></app-tech-marquee>
       <app-services></app-services>
-      <app-projects></app-projects>
+      <app-project-showcase></app-project-showcase>
       <app-contact></app-contact>
     </main>
     <app-footer></app-footer>

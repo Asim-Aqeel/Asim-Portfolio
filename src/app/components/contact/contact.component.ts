@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   form!: FormGroup;
   sending = false;
   status  = '';
-  isOk    = false;
+  isOk   = false;
 
   constructor(public data: PortfolioDataService, private fb: FormBuilder,
               @Inject(PLATFORM_ID) private pid: object) {}

@@ -1,0 +1,321 @@
+// ════════════════════════════════════════════════════════════════
+// PROJECT SHOWCASE — Scroll Stack
+// Scroll animation → JS (AfterViewInit in .ts)
+// This file → visual styling only
+// ════════════════════════════════════════════════════════════════
+
+// ─── Tokens ──────────────────────────────────────────────────────
+$green:      #00e87a;
+$bg-odd:     #0b1120;
+$bg-even:    #0d1528;
+$text-hi:    #ffffff;
+$text-mid:   #7e96b2;
+$text-lo:    #607a96;
+$border:     rgba(255, 255, 255, 0.07);
+$tag-bg:     rgba(255, 255, 255, 0.055);
+$tag-border: rgba(255, 255, 255, 0.09);
+
+// Coarse grain — crisp, NO blur
+$noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23g)' opacity='0.22'/%3E%3C/svg%3E");
+
+// ─── Host ────────────────────────────────────────────────────────
+:host {
+  display: block;
+}
+
+// ─── Section ─────────────────────────────────────────────────────
+// Height is set by JS (N × 100vh). Never add overflow here.
+.showcase-section {
+  position: relative;
+  width: 100%;
+  padding: 7rem 5rem;
+  @media(max-width:900px){padding:5rem 1.5rem}
+  @media(max-width:480px){padding:4rem 1rem}
+}
+
+// ─── Section Header ─────────────────────────────────────────────
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  @media(max-width:768px){margin-bottom: 2rem}
+}
+
+// ─── Sticky Viewport ─────────────────────────────────────────────
+// overflow:visible is CRITICAL — buried cards must peek above top edge
+.cards-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: visible;
+}
+
+// ─── Project Card ─────────────────────────────────────────────────
+// JS controls `top`, `transform`, `opacity` on each card.
+// Cards are absolute, centered horizontally via left:50% + translateX(-50%).
+.project-card {
+  position: absolute;
+  left: 50%;
+  top: 100vh;                           // JS overrides this each frame
+  transform: translateX(-50%);          // JS overrides with full transform
+  width: calc(100% - 48px);
+  max-width: 1160px;
+  height: 520px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  padding: 52px 64px;
+
+  border-radius: 20px;
+  overflow: hidden;
+  will-change: top, transform, opacity;
+
+  border: 1px solid $border;
+
+  &:nth-child(odd)  { background-color: $bg-odd; }
+  &:nth-child(even) { background-color: $bg-even; }
+
+  // ── Grain texture — crisp, no blur ──────────────────────────────
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: $noise;
+    background-size: 250px 250px;
+    background-repeat: repeat;
+  }
+
+  // ── Subtle radial glow (no blur circles / dots) ─────────────────
+  &:nth-child(odd)::after {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(0, 232, 122, 0.06) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:nth-child(even)::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(0, 140, 255, 0.055) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+// ─── Info col (left) ──────────────────────────────────────────────
+.card-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 24px;
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $green;
+}
+
+.card-title {
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  color: $text-hi;
+  margin: 0;
+}
+
+.card-desc {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: $text-mid;
+  margin: 0;
+  max-width: 42ch;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: $text-lo;
+  background: $tag-bg;
+  border: 1px solid $tag-border;
+  border-radius: 6px;
+  padding: 4px 11px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #060d1a;
+  background: $green;
+  border-radius: 8px;
+  padding: 9px 20px;
+  text-decoration: none;
+  transition: opacity .2s, transform .2s;
+
+  &:hover            { opacity: .85; transform: translateY(-1px); }
+  svg                { transition: transform .2s; }
+  &:hover svg        { transform: translate(2px, -2px); }
+}
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-lo;
+  background: $tag-bg;
+  border: 1px solid $tag-border;
+  border-radius: 8px;
+  padding: 9px 16px;
+  text-decoration: none;
+  transition: color .2s, border-color .2s;
+
+  &:hover { color: #e2e8f0; border-color: rgba(255,255,255,.22); }
+}
+
+// ─── Mockup col (right) ───────────────────────────────────────────
+.card-mockup {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laptop-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.laptop-screen {
+  background: #080e1c;
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgba(255,255,255,.11);
+  border-bottom: none;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+}
+
+.laptop-base {
+  height: 17px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.1) 0%, rgba(255,255,255,.03) 100%);
+  border-radius: 0 0 4px 4px;
+  border: 2px solid rgba(255,255,255,.09);
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laptop-notch {
+  width: 54px;
+  height: 5px;
+  background: rgba(255,255,255,.07);
+  border-radius: 0 0 6px 6px;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────
+
+@media (max-width: 1023px) {
+  .project-card {
+    padding: 40px 36px;
+    height: auto;
+    min-height: 440px;
+  }
+  .card-info { padding-right: 16px; }
+}
+
+// Mobile — JS turns off scroll stack, CSS makes cards flow normally
+@media (max-width: 767px) {
+  .cards-viewport {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .project-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding: 32px 22px;
+    gap: 28px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    opacity: 1 !important;
+  }
+
+  .card-info   { padding-right: 0; }
+  .card-mockup { order: -1; }        // image above text on mobile
+  .laptop-wrap { max-width: 100%; }
+}
+
+@media (max-width: 400px) {
+  .card-title { font-size: 20px; }
+  .btn-live, .btn-github { font-size: 12px; padding: 8px 14px; }
+}
+
+.laptop-chrome {
+  height: 28px;
+  background: #111827;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.lc-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.lc-red    { background: #ff5f57; }
+.lc-yellow { background: #febc2e; }
+.lc-green  { background: #28c840; }

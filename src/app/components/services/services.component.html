@@ -1,6 +1,9 @@
 <section id="services">
-  <h2 class="sh" style="text-align:center">My <span class="dim">Services</span></h2>
-  <p class="sdesc" style="text-align:center">End-to-end — from pixel-perfect frontends to robust APIs and cloud infrastructure.</p>
+  <div class="section-header">
+    <span class="sl">WHAT I OFFER</span>
+    <h2 class="sh">My Services</h2>
+    <p class="sdesc">End-to-end — from pixel-perfect frontends to robust APIs and cloud infrastructure.</p>
+  </div>
   <div class="svgg">
     <div *ngFor="let s of data.services; let i = index" class="svc" [class.feat]="s.featured" [style.animation-delay]="i * 80 + 'ms'">
       <span *ngIf="s.featured" class="sv-badge">★ Core</span>
