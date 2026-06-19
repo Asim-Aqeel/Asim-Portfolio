@@ -54,24 +54,34 @@ export class ProjectShowcaseComponent implements AfterViewInit, OnDestroy {
       liveUrl: 'https://parcel-delivery-website.vercel.app',
       githubUrl: 'https://github.com/Asim-Aqeel/parcel-delivery-website',
     },
+    // {
+    //   label: 'XEON-CAPITAL',
+    //   year: '2024',
+    //   title: 'Investment Portal for Xeon Capital',
+    //   description:
+    //     'Modern fintech UI for investors to view fund performance, KYC status, wallet transactions, and risk score.',
+    //   tags: ['Angular', 'TypeScript', 'Fintech', 'REST API'],
+    //   image: 'assets/projects/xeon-capital.png',
+    //   liveUrl: 'https://xeoncapital.com',
+    // },
     {
-      label: 'XEON-CAPITAL',
+      label: 'PRACIFY',
       year: '2024',
-      title: 'Investment Portal for Xeon Capital',
-      description:
-        'Modern fintech UI for investors to view fund performance, KYC status, wallet transactions, and risk score.',
-      tags: ['Angular', 'TypeScript', 'Fintech', 'REST API'],
-      image: 'assets/projects/xeon-capital.png',
-      liveUrl: 'https://xeoncapital.com',
+      title: 'Pracify - Online Learning & Job Portal',
+      description: 'Comprehensive educational platform featuring course enrollment, instructor management, job applications, social networking, payment gateway integration, and referral earning system.',
+      tags: ['PHP 8', 'MySQL', 'Bootstrap 5', 'jQuery', 'AJAX', 'PDO'],
+      image: 'assets/images/projectImages/project2.png',
+      liveUrl: 'http://localhost/pracifyyy/pracifyyy',
+      githubUrl: 'https://github.com/Asim-Aqeel/pracify'
     },
     {
-      label: 'HR-HUNTER',
+      label: 'LeadRadar v2.0',
       year: '2025',
-      title: 'HR Hunter Chrome Extension',
+      title: 'LeadRadar v2.0 - B2B Lead Generation Tool',
       description:
         'Chrome extension to find recruiter & HR contacts via Hunter.io API with LinkedIn auto-detection and smart email surfacing.',
       tags: ['Chrome Extension', 'TypeScript', 'Hunter.io API', 'LinkedIn'],
-      image: 'assets/projects/hr-hunter.png',
+      image: 'assets/images/projectImages/project3.png',
       githubUrl: 'https://github.com/your-username/hr-hunter-v2',
     },
   ];
