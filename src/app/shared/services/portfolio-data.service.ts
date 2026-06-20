@@ -6,9 +6,10 @@ export class PortfolioDataService {
 
   readonly navLinks: NavLink[] = [
     { id:'hero', label:'Home' }, { id:'about', label:'About' },
-    { id:'experience', label:'Experience', hideOnMobile:true },
+    { id:'experience', label:'Experience' },
     { id:'services', label:'Services' }, { id:'projects', label:'Projects' },
-    { id:'cv', label:'CV' }, { id:'contact', label:'Contact' },
+    // { id:'cv', label:'CV' }, 
+    { id:'contact', label:'Contact' },
   ];
 
   readonly typewriterPhrases = [
