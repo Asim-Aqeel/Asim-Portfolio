@@ -1,0 +1,187 @@
+// ════════════════════════════════════════════════════════════════
+// EXPERIENCE SECTION — Career & Education Timeline
+// ════════════════════════════════════════════════════════════════
+
+$green:       #00e87a;
+$green-dim:   rgba(0, 232, 122, 0.14);
+$bg-card:     #111b32;
+$border:      rgba(255, 255, 255, 0.14);
+$text-hi:     #ffffff;
+$text-mid:    #aebfd6;
+$text-lo:     #8294b0;
+
+:host { display: block; }
+
+.experience-section {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+// ── Header ────────────────────────────────────────────────────────
+.exp-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $green;
+  margin: 0 0 12px;
+}
+
+.exp-heading {
+  font-size: clamp(26px, 3.6vw, 38px);
+  font-weight: 700;
+  color: $text-hi;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.exp-subtext {
+  font-size: 15px;
+  color: $text-mid;
+  max-width: 50ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// ── Timeline ──────────────────────────────────────────────────────
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 24px;
+}
+
+// Marker column
+.tl-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tl-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $bg-card;
+  border: 2px solid $border;
+  flex-shrink: 0;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-lo;
+  transition: border-color 0.2s;
+
+  .tl-current & {
+    border-color: $green;
+    background: $green-dim;
+    box-shadow: 0 0 10px rgba(0, 232, 122, 0.35);
+  }
+
+  &.tl-edu {
+    border-color: rgba(0, 180, 216, 0.5);
+    background: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+  }
+}
+
+.tl-line {
+  width: 2px;
+  flex: 1;
+  background: $border;
+  margin: 6px 0;
+  min-height: 24px;
+}
+
+// Content column
+.tl-content {
+  padding-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tl-top-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tl-year {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $green;
+}
+
+.tl-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $green;
+  background: $green-dim;
+  border: 1px solid rgba(0, 232, 122, 0.25);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.tl-role {
+  font-size: 19px;
+  font-weight: 700;
+  color: $text-hi;
+  margin: 2px 0 0;
+  letter-spacing: -0.01em;
+}
+
+.tl-company {
+  font-size: 13.5px;
+  color: $text-mid;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.tl-bullets {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tl-bullets li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: $text-mid;
+
+  &::marker { color: $green; }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// RESPONSIVE
+// ══════════════════════════════════════════════════════════════════
+@media (max-width: 600px) {
+  .experience-section { padding: 60px 16px; }
+
+  .timeline-item {
+    grid-template-columns: 24px 1fr;
+    gap: 14px;
+  }
+
+  .tl-role { font-size: 17px; }
+  .tl-bullets li { font-size: 13.5px; }
+}

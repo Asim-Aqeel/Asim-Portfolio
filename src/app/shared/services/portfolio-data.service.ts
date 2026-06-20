@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { NavLink, HeroStat, TechChip, WhatIDoCard, Project, Service, TimelineItem, ContactLink } from '../../models/portfolio.models';
+import { NavLink, HeroStat, TechChip, Project, Service, TimelineItem, ContactLink } from '../../models/portfolio.models';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioDataService {
 
   readonly navLinks: NavLink[] = [
     { id:'hero', label:'Home' }, { id:'about', label:'About' },
-    { id:'services', label:'Services' }, { id:'projects', label:'Projects' },
     { id:'experience', label:'Experience', hideOnMobile:true },
+    { id:'services', label:'Services' }, { id:'projects', label:'Projects' },
     { id:'cv', label:'CV' }, { id:'contact', label:'Contact' },
   ];
 
@@ -30,13 +30,6 @@ export class PortfolioDataService {
     { label:'Tailwind',   colorClass:'ch-tw' }, { label:'Docker',     colorClass:'ch-dk' },
     { label:'RxJS',       colorClass:'ch-rx' }, { label:'WordPress',  colorClass:'ch-wp' },
     { label:'Git',        colorClass:'ch-gi' },
-  ];
-
-  readonly whatIDo: WhatIDoCard[] = [
-    { iconPath:'M8 6l4-4 4 4M6 10h12M6 14h12M6 18h12', title:'Frontend Development', desc:'Angular 18, RxJS, NgRx, reactive forms, AG Grid & pixel-perfect UIs' },
-    { iconPath:'M5 12h14M12 5l7 7-7 7', title:'Backend & APIs', desc:'Node.js, Express.js, PHP/Yii2, RESTful APIs & JWT authentication' },
-    { iconPath:'M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z', title:'Cloud & DevOps', desc:'AWS S3, CloudFront, CloudFlare APIs, Docker & CI/CD pipelines' },
-    { iconPath:'M4 7h16M4 12h16M4 17h7', title:'Database Design', desc:'MySQL, MongoDB, schema design, indexing & query optimization' },
   ];
 
   readonly projects: Project[] = [

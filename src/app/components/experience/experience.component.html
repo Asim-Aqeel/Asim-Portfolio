@@ -1,0 +1,52 @@
+<!--
+  EXPERIENCE SECTION — Career & Education Timeline
+  ════════════════════════════════════════════════
+  Usage:  <app-experience></app-experience>
+  Edit content in experience.component.ts
+  (Identity/bio/skills live in the separate AboutComponent
+   — see /about folder)
+-->
+<section id="experience" class="experience-section">
+
+  <div class="exp-header">
+    <p class="eyebrow">JOURNEY</p>
+    <h2 class="exp-heading">Experience &amp; Education</h2>
+    <p class="exp-subtext">
+      A timeline of where I've worked, what I've built, and where I studied.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div
+      class="timeline-item"
+      *ngFor="let item of timeline; let last = last"
+      [class.tl-current]="item.current"
+    >
+      <!-- Marker column -->
+      <div class="tl-marker">
+        <div class="tl-dot" [class.tl-edu]="item.type === 'education'">
+          <svg *ngIf="item.type === 'education'" width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <div class="tl-line" *ngIf="!last"></div>
+      </div>
+
+      <!-- Content column -->
+      <div class="tl-content">
+        <div class="tl-top-row">
+          <span class="tl-year">{{ item.year }}</span>
+          <span class="tl-badge" *ngIf="item.current">Current</span>
+        </div>
+
+        <h3 class="tl-role">{{ item.role }}</h3>
+        <p class="tl-company">{{ item.company }}</p>
+
+        <ul class="tl-bullets">
+          <li *ngFor="let point of item.bullets">{{ point }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>

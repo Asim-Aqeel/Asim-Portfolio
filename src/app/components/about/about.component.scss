@@ -26,10 +26,117 @@
 
 // Right: bio + skills
 .abio { margin-bottom:2.5rem; p{font-size:1rem;color:var(--t2);line-height:1.82;margin-bottom:.9rem;strong{color:var(--t);font-weight:600}} }
-.awhat { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; margin-bottom:2.5rem; @media(max-width:600px){grid-template-columns:1fr} }
-.awcard { background:var(--gl); border:1px solid var(--gb); border-radius:12px; padding:1.1rem 1.2rem; display:flex; align-items:flex-start; gap:.85rem; transition:var(--tr); cursor:default; &:hover{border-color:rgba(0,245,196,.25);transform:translateY(-3px)} }
-.awico { width:38px; height:38px; border-radius:9px; background:rgba(0,245,196,.08); border:1px solid var(--gb); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--c); svg{width:17px;height:17px} }
-.awcard h4 { font-family:var(--h); font-size:.88rem; font-weight:700; color:var(--t); margin-bottom:.25rem; }
-.awcard p  { font-size:.77rem; color:var(--t2); line-height:1.5; }
-.askills-label { font-family:var(--mono); font-size:.72rem; color:var(--c); letter-spacing:.12em; text-transform:uppercase; margin-bottom:1rem; display:flex; align-items:center; gap:8px; &::after{content:'';flex:1;height:1px;background:var(--gb)} }
-.achips { display:flex; flex-wrap:wrap; gap:7px; }
+
+// Capability Cards
+.caps {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  width:100%;
+  @media(max-width:768px){ grid-template-columns:1fr; gap:14px; }
+  @media(max-width:480px){ gap:12px; }
+}
+
+.cap-card {
+  --glow: var(--c);
+  background:linear-gradient(160deg, #121826 0%, #0d121d 100%);
+  border:1px solid var(--gb);
+  border-radius:14px;
+  padding:24px 22px;
+  position:relative;
+  overflow:hidden;
+  cursor:default;
+  transition:transform .4s cubic-bezier(.22,1,.36,1), border-color .4s ease, box-shadow .4s ease;
+  @media(max-width:768px){ padding:20px 18px; }
+  @media(max-width:480px){ padding:18px 16px; }
+}
+
+.cap-card::before {
+  content:'';
+  position:absolute;
+  top:-60%; left:-30%;
+  width:260px; height:260px;
+  background:radial-gradient(circle, var(--glow) 0%, transparent 65%);
+  opacity:0;
+  filter:blur(18px);
+  transition:opacity .5s ease;
+  pointer-events:none;
+}
+
+.cap-card::after {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--glow), transparent 80%);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+
+.cap-card:hover {
+  transform:translateY(-6px);
+  border-color:var(--glow);
+  box-shadow:0 24px 48px -16px rgba(0,0,0,0.55), 0 0 32px -8px var(--glow);
+}
+.cap-card:hover::before { opacity:0.45; }
+.cap-card:hover::after { transform:scaleX(1); }
+
+.cap-card[data-accent="mint"] { --glow: #5eead4; }
+.cap-card[data-accent="violet"] { --glow: #a78bfa; }
+.cap-card[data-accent="amber"] { --glow: #fbbf6a; }
+.cap-card[data-accent="rose"] { --glow: #fb7faa; }
+
+.cap-icon {
+  width:42px; height:42px;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px;
+  position:relative;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform .4s cubic-bezier(.22,1,.36,1), border-color .4s ease;
+  @media(max-width:480px){ width:38px; height:38px; margin-bottom:14px; }
+}
+.cap-card:hover .cap-icon {
+  transform:scale(1.08) translateY(-1px);
+  border-color:var(--glow);
+}
+.cap-icon svg { width:21px; height:21px; color:var(--glow); @media(max-width:480px){ width:18px; height:18px; } }
+
+.cap-title {
+  font-size:15.5px;
+  font-weight:700;
+  color:var(--t);
+  margin-bottom:8px;
+  letter-spacing:-0.1px;
+  @media(max-width:480px){ font-size:14px; margin-bottom:6px; }
+}
+.cap-desc {
+  font-size:13px;
+  color:#b8c5d6;
+  line-height:1.6;
+  @media(max-width:480px){ font-size:12px; line-height:1.5; }
+}
+
+.cap-pills {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:14px;
+  @media(max-width:480px){ gap:5px; margin-top:12px; }
+}
+.cap-pills span {
+  font-family:var(--mono);
+  font-size:10.5px;
+  color:var(--t2);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:6px;
+  padding:4px 8px;
+  transition:border-color .3s ease, color .3s ease;
+  @media(max-width:480px){ font-size:9.5px; padding:3px 6px; }
+}
+.cap-card:hover .cap-pills span {
+  border-color:rgba(255,255,255,0.12);
+  color:#b6bfd0;
+}
