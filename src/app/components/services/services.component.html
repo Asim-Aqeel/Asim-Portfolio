@@ -1,20 +1,21 @@
-<section id="services">
-  <div class="section-header">
-    <span class="sl">WHAT I OFFER</span>
-    <h2 class="sh">My Services</h2>
-    <p class="sdesc">End-to-end — from pixel-perfect frontends to robust APIs and cloud infrastructure.</p>
-  </div>
-  <div class="svgg">
-    <div *ngFor="let s of data.services; let i = index" class="svc" [class.feat]="s.featured" [style.animation-delay]="i * 80 + 'ms'">
-      <span *ngIf="s.featured" class="sv-badge">★ Core</span>
-      <div class="sv-ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-          <path [attr.d]="s.iconPath"/>
-        </svg>
+<section id="services" class="services">
+  <div class="wrap">
+
+    <div class="eyebrow">what i offer</div>
+    <h2 class="headline">Services &amp; Expertise</h2>
+    <p class="sub">End-to-end development across frontend, backend, cloud and infrastructure — built for production, not just demos.</p>
+
+    <div class="grid">
+      <div
+        class="svc-card"
+        *ngFor="let s of services"
+        [attr.data-accent]="s.accent"
+        tabindex="0">
+        <div class="svc-icon" [innerHTML]="getSafeIcon(s.icon)"></div>
+        <div class="svc-title">{{ s.title }}</div>
+        <p class="svc-desc">{{ s.description }}</p>
       </div>
-      <h3>{{ s.title }}</h3>
-      <p>{{ s.desc }}</p>
-      <ul><li *ngFor="let item of s.items">{{ item }}</li></ul>
     </div>
+
   </div>
 </section>

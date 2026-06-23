@@ -40,6 +40,29 @@ $noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   @media(max-width:768px){margin-bottom: 2rem}
 }
 
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $green;
+  margin-bottom: 18px;
+
+  &::before, &::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $green);
+  }
+  &::after {
+    background: linear-gradient(90deg, $green, transparent);
+  }
+}
+
 // ─── Sticky Viewport ─────────────────────────────────────────────
 // overflow:visible is CRITICAL — buried cards must peek above top edge
 .cards-viewport {

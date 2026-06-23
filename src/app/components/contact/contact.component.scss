@@ -1,6 +1,29 @@
 #contact { padding:4rem 5rem 4rem; background:linear-gradient(180deg,transparent,var(--bg2) 15%,var(--bg2) 85%,transparent); overflow:hidden; @media(max-width:1024px){padding:3rem 3rem 3rem} @media(max-width:768px){padding:2rem 1.5rem 2rem} @media(max-width:480px){padding:1.5rem 1rem 1.5rem} }
 .cont-head { text-align:center; margin-bottom:-9rem; }
 
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--c);
+  margin-bottom: 18px;
+
+  &::before, &::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c));
+  }
+  &::after {
+    background: linear-gradient(90deg, var(--c), transparent);
+  }
+}
+
 .contact-wrapper {
   display:flex; align-items:flex-end; justify-content:center; gap:0;
   max-width:1200px; margin:0 auto; position:relative;

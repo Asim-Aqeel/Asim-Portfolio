@@ -1,6 +1,29 @@
 #about { background:linear-gradient(180deg,transparent,var(--bg2) 18%,var(--bg2) 82%,transparent); padding:4rem 5rem; @media(max-width:768px){padding:3rem 1.5rem} @media(max-width:480px){padding:2rem 1rem} }
 .ag { display:grid; grid-template-columns:300px 1fr; gap:3.5rem; align-items:start; margin-top:1rem; @media(max-width:768px){grid-template-columns:1fr;gap:2.5rem} @media(max-width:480px){gap:2rem} }
 
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--c);
+  margin-bottom: 18px;
+
+  &::before, &::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c));
+  }
+  &::after {
+    background: linear-gradient(90deg, var(--c), transparent);
+  }
+}
+
 // Profile card (left, sticky)
 .acard { position:sticky; top:calc(var(--nav-h,76px) + 2rem); background:var(--gl); border:1px solid var(--gb); border-radius:20px; overflow:hidden; backdrop-filter:blur(16px); @media(max-width:768px){position:static;max-width:320px;margin:0 auto} @media(max-width:480px){max-width:100%} }
 .acard-top { padding:2.2rem 2rem 1.5rem; text-align:center; background:linear-gradient(135deg,rgba(0,245,196,.05),transparent); border-bottom:1px solid var(--gb); }
